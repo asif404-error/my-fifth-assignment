@@ -18,3 +18,16 @@ document.getElementById("signInBtn").addEventListener("click", () => {
   sessionStorage.setItem("isLoggedIn", "true");
   window.location.href = "./index2.html";
 });
+
+function showError(message) {
+  let error = document.getElementById("errorMsg");
+  if (!error) {
+    error = document.createElement("p");
+    error.id = "errorMsg";
+    error.className = "text-xs text-red-500 text-center mt-3";
+    document
+      .getElementById("signInBtn")
+      .insertAdjacentElement("afterend", error);
+  }
+  error.textContent = message;
+}
