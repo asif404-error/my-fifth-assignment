@@ -43,7 +43,109 @@
       }
     </style>
   </head>
-  <body>
-    <script src="script2.js"></script>
+  <body class="min-h-screen p-4 sm:p-6 lg:p-8">
+    <div class="max-w-5xl mx-auto bg-white rounded-xl overflow-hidden">
+      <nav
+        class="flex flex-col sm:flex-row items-start sm:items-center justify-between px-5 py-3 border-b border-gray-200 gap-3"
+      >
+        <div class="flex items-center gap-2">
+          <img src="./assets/github-logo.png" alt="" class="w-8 h-8" />
+          <span class="font-semibold text-sm text-gray-900"
+            >GitHub Issues Tracker</span
+          >
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <i
+              class="fa-solid fa-magnifying-glass absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400"
+            ></i>
+            <input
+              type="text"
+              placeholder="Search issues..."
+              id="searchInput"
+              class="pl-8 pr-3 py-1.5 text-xs border border-gray-300 rounded-md outline-none focus:border-indigo-400 w-32 sm:w-48"
+            />
+          </div>
+          <button
+            id="searchBtn"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-3 py-1.5 rounded-md transition whitespace-nowrap"
+          >
+            Search
+          </button>
+        </div>
+      </nav>
+      <div id="loading-spinner" class="flex justify-center items-center py-16">
+        <span class="loading loading-spinner loading-md text-indigo-600"></span>
+      </div>
+      <section id="main_section" class="hidden">
+        <div class="p-4 sm:p-5">
+          <div class="flex gap-1 mb-4">
+            <button
+              class="px-4 py-1.5 text-xs font-semibold bg-indigo-600 text-white rounded-sm"
+            >
+              All
+            </button>
+            <button
+              class="px-4 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 rounded-sm"
+            >
+              Open
+            </button>
+            <button
+              class="px-4 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 rounded-sm"
+            >
+              Closed
+            </button>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center"
+                >
+                  <img src="./assets/Group 1.png" alt="" />
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-900" id="issue_count">
+                    50 Issues
+                  </p>
+                  <p class="text-xs text-gray-500">
+                    Track and manage your project issues
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-600">
+                <span class="flex items-center gap-1"
+                  ><span
+                    class="w-2 h-2 rounded-full bg-green-500 inline-block"
+                  ></span>
+                  Open</span
+                >
+                <span class="flex items-center gap-1"
+                  ><span
+                    class="w-2 h-2 rounded-full bg-purple-500 inline-block"
+                  ></span>
+                  Closed</span
+                >
+              </div>
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+              id="issuesGrid"
+            >
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div
+      id="issueModal"
+      class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div class="bg-white rounded-xl w-full max-w-lg p-6 relative">
+        <div id="modalContent">
+        </div>
+      </div>
+    </div>
+    <script src="./script2.js"></script>
   </body>
 </html>
