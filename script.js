@@ -1,5 +1,5 @@
 // console.log("Login is loading!");
-const CREDENTIALS = { username: "admin", password: "admin123" };
+const credentials = { username: "admin", password: "admin123" };
 
 document.getElementById("signInBtn").addEventListener("click", () => {
   const username = document.getElementById("username").value.trim();
@@ -10,7 +10,7 @@ document.getElementById("signInBtn").addEventListener("click", () => {
     return;
   }
 
-  if (username !== CREDENTIALS.username || password !== CREDENTIALS.password) {
+  if (username !== credentials.username || password !== credentials.password) {
     showError("Invalid username or password.");
     return;
   }
